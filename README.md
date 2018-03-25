@@ -1,2 +1,2 @@
 # shuffleFit
-Randomize your Workout Routine1
+Randomize your Workout Routine
