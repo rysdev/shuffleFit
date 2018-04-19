@@ -42,7 +42,7 @@ class HomePage extends Component {
     })
     return (
       <div>
-        <h2>Homepage Title Here</h2>
+        <h2>Customize Your Workout</h2>
         {loggedIn() &&
           <div>
             <h3> Login Successful </h3>

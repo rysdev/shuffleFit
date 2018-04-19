@@ -56,7 +56,7 @@ class HeaderView extends Component {
           </li>
         </ul>
         <div className="main-header">
-          <h1>Navbar Header Here</h1>
+          <h1>ShuffleFit</h1>
         </div>
       </div>
     );
