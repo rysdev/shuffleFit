@@ -1,4 +1,4 @@
 # shuffleFit
 Randomize your Workout-Routine
 
-Work in progess
+Skeleton up - Work in progess
