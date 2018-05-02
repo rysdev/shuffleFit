@@ -1,9 +1,7 @@
 # shuffleFit
 Randomize your Workout Routine
 
-Front-end : React.js
-Back-end : Express.js
-DB : Mongoose
+Mongoose Express Node React
 
 Skeleton up with login system working
 
