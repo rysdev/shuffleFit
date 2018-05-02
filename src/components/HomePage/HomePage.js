@@ -46,23 +46,11 @@ class HomePage extends Component {
         {loggedIn() &&
           <div>
             <h3> Login Successful </h3>
-            <p> Username to go in db: { getProfile().nickname }</p>
-            <p> Identifier to go in db: { getProfile().sub }</p>
+            <p> Welcome { getProfile().nickname }</p>
           </div>
         }
         {!loggedIn() &&
           <h3> Not Logged In </h3>
-        }
-        <h2> Sample JSON Data </h2>
-        {this.state.data.length === 0 &&
-          <h3> Not Data Found </h3>
-        }
-        {this.state.data.length > 0 &&
-        <div>
-          <div><pre>{JSON.stringify(this.state.data, null, 2) }</pre></div>
-          <h2> Filtering one field of all entries </h2>
-          { dataNodes }
-        </div>
         }
       </div>
     )
