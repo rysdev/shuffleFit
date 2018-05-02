@@ -1,4 +1,6 @@
 # shuffleFit
-Randomize your Workout-Routine
+Randomize your Workout Routine
 
-Skeleton up - Work in progess
+Skeleton up with login system working
+
+Work in Progess
