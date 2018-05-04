@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import Header from '../Header/Header';
 import HomePage from '../../components/HomePage/HomePage';
 import AboutPage from '../../components/AboutPage/AboutPage';
+import AdminPage from '../../components/AdminPage/AdminPage';
 import NotFoundPage from '../../components/NotFoundPage/NotFoundPage';
 import * as AuthService from '../../utils/AuthService';
 
@@ -54,6 +55,7 @@ class AppView extends Component {
         <Switch>
           <Route exact path="/" render={myHomePage}/>
           <Route path="/about" component={AboutPage} />
+          <Route path="/admin" component={AdminPage} />
           <Route component={NotFoundPage} />
         </Switch>
       </div>

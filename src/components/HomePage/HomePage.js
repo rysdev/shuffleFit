@@ -33,13 +33,13 @@ class HomePage extends Component {
   }
 
   render() {
-    let dataNodes = this.state.data.map(comment => {
+    /*let dataNodes = this.state.data.map(comment => {
       return (
         <div key={ comment._id }>
           { comment.text }
         </div>
       )
-    })
+    })*/
     return (
       <div>
         <h2>Customize Your Workout</h2>
