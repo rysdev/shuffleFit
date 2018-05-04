@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var Comment = require('./model/comments');
 var Lowerb = require('./model/lowerb');
+var Upperb = require('./model/upperb');
 var secrets = require('./secrets');
 
 //instances
@@ -65,6 +66,34 @@ router.route('/lowerb')
       if (err)
         res.send(err);
       res.json({ message: 'Lower Body Routine successfully added!' });
+    });
+  });
+
+//add upper body route
+router.route('/upperb')
+  //retrieve from db
+  .get(function(req, res) {
+    //looks at Upper Body Schema
+    Upperb.find(function(err, routines) {
+      if (err)
+        res.send(err);
+    //responds with json object of db upper body routines.
+    res.json(routines)
+    });
+  })
+  //post new upper body routine to db
+  .post(function(req, res) {
+    var routine = new Upperb();
+    (req.body.name) ? routine.name = req.body.name : null;
+    (req.body.reps) ? routine.reps = req.body.reps : null;
+    (req.body.sets) ? routine.sets = req.body.sets : null;
+    (req.body.frontImg) ? routine.frontImg = req.body.frontImg : null;
+    (req.body.backImg) ? routine.backImg = req.body.backImg : null;
+
+    routine.save(function(err) {
+      if (err)
+        res.send(err);
+      res.json({ message: 'Upper Body Routine successfully added!' });
     });
   });
 

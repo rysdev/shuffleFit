@@ -5,7 +5,7 @@ import style from './style';
 class AdminForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { name: '', reps: 0, sets: 0, frontImg: '', backImg: '' };
+    this.state = { name: '', reps: '0', sets: '0', frontImg: '', backImg: '' };
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleFrontImgChange = this.handleFrontImgChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,7 +24,7 @@ class AdminForm extends Component {
       return;
     }
     this.props.onRoutineSubmit({ name: name, reps: '10', sets: '3', frontImg: frontImg, backImg: 'not set' });
-    this.setState({ name: '', frontImg: '' });
+    this.setState({ name: '', reps: '0', sets: '0', frontImg: '', backImg: '' });
   }
   render() {
     return (
