@@ -69,6 +69,19 @@ router.route('/lowerb')
     });
   });
 
+//Adding a route to send randomly generated lower body routines
+router.route('/lowerb/:lowerb_size')
+  //
+  .get(function(req, res) {
+    //
+    Lowerb.aggregate([{$sample: {size: parseInt(req.params.lowerb_size)}}], function(err, routines) {
+      if (err)
+        res.send(err);
+      //responds with json object of db lower body routines.
+      res.json(routines)
+    });
+  });
+
 //add upper body route
 router.route('/upperb')
   //retrieve from db
@@ -94,6 +107,19 @@ router.route('/upperb')
       if (err)
         res.send(err);
       res.json({ message: 'Upper Body Routine successfully added!' });
+    });
+  });
+
+//Adding a route to send randomly generated upper body routines
+router.route('/upperb/:upperb_size')
+  //
+  .get(function(req, res) {
+    //
+    Upperb.aggregate([{$sample: {size: parseInt(req.params.upperb_size)}}], function(err, routines) {
+      if (err)
+        res.send(err);
+      //responds with json object of db upper body routines.
+      res.json(routines)
     });
   });
 
