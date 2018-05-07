@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import { loggedIn, getProfile } from '../../utils/AuthService';
+import ShuffleForm from './ShuffleForm';
 
 class HomePage extends Component {
   constructor(props) {
@@ -27,9 +28,9 @@ class HomePage extends Component {
   //this will prevent error messages every 2 seconds
   //after HomePage is unmounted
   componentWillUnmount() {
-  //this.pollInterval && clearInterval(this.pollInterval);
-  clearInterval(this.pollInterval);
-  this.pollInterval = null;
+    //this.pollInterval && clearInterval(this.pollInterval);
+    clearInterval(this.pollInterval);
+    this.pollInterval = null;
   }
 
   render() {
@@ -52,6 +53,7 @@ class HomePage extends Component {
         {!loggedIn() &&
           <h3> Not Logged In </h3>
         }
+        < ShuffleForm />
       </div>
     )
   }

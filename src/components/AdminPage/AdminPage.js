@@ -4,7 +4,6 @@ import axios from 'axios';
 import AdminForm from './AdminForm';
 import { getProfile } from '../../utils/AuthService';
 import config from '../../utils/config';
-import { SSL_OP_PKCS1_CHECK_2 } from 'constants';
 
 class AdminPage extends Component {
   constructor(props) {
