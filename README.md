@@ -3,6 +3,6 @@ Randomize your Workout Routine
 
 Mongoose Express Node React
 
-Skeleton up with login system working
+Basic generator up with no styling
 
 Work in Progess
