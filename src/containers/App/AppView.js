@@ -45,7 +45,7 @@ class AppView extends Component {
     const myHomePage = () => {
       return (
         <HomePage 
-          url='http://localhost:3001/api/comments'
+          url='http://localhost:3001/api/lowerb'
           pollInterval={2000}
         />
       );

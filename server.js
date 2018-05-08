@@ -123,59 +123,6 @@ router.route('/upperb/:upperb_size')
     });
   });
 
-//add a new route
-router.route('/comments')
-  //retrieve from db
-  .get(function(req, res) {
-    //looks at Comment Schema
-    Comment.find(function(err, comments) {
-      if (err)
-        res.send(err);
-      //responds with  json object of db comments.
-      res.json(comments)
-    });
-  })
-  //post new comment to db
-  .post(function(req, res) {
-    var comment = new Comment();
-    (req.body.author) ? comment.author = req.body.author : null;
-    (req.body.text) ? comment.text = req.body.text : null;
-
-    comment.save(function(err) {
-      if (err)
-        res.send(err);
-      res.json({ message: 'Comment successfully added!' });
-    });
-  });
-
-//Adding a route search using ID
-router.route('/comments/:comment_id')
-  //Update comment after search using id
-  .put(function(req, res) {
-    Comment.findById(req.params.comment_id, function(err, comment) {
-      if (err)
-        res.send(err);
-      //checks if any changes were made, if so it updates
-      (req.body.author) ? comment.author = req.body.author : null;
-      (req.body.text) ? comment.text = req.body.text : null;
-      //save comment
-      comment.save(function(err) {
-        if (err)
-          res.send(err);
-        res.json({ message: 'Comment has been updated' });
-      });
-    });
-  })
-  //remove comment from db
-  .delete(function(req, res) {
-    //delete after search using id
-    Comment.remove({ _id: req.params.comment_id }, function(err, comment) {
-      if (err)
-        res.send(err);
-      res.json({ message: 'Comment has been deleted' })
-    })
-  });
-
 //Specify router configured for {host):{port}/api/anyroutehere
 app.use('/api', router);
 

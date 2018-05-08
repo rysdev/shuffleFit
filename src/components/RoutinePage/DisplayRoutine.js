@@ -13,7 +13,7 @@ class DisplayRoutine extends Component {
     return (
       <div>
         <span> 
-          <img src={this.props.frontUrl} alt="Routine Image" width="300" height="400"/>
+          <img src={this.props.frontUrl} alt="Routine Demonstration" width="300" height="400"/>
           <img src={this.props.backUrl} alt="Routine Details" width="300" height="400"/>
         </span>
         <p> { this.props.sets } Sets of { this.props.reps } </p>
