@@ -6,20 +6,27 @@ import style from './style';
 class ShuffleForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { type: '/routinel'};
+    this.handleTypeChange = this.handleTypeChange.bind(this);
   }
+
+  handleTypeChange(e) {
+    this.setState({ type: e.target.value });
+  }  
 
   render() {
     return (
       <div>
-        <Link to="/routinel">
+        <label>
+          Build Your Routine
+          <select value={this.state.type} onChange={this.handleTypeChange}>
+            <option selected value="/routinel">Lower Body</option>
+            <option value="/routineu">Upper Body</option>
+          </select>
+        </label>
+        <Link to={this.state.type}>
           <button style={ style.shuffleButton } type="button">
-            Generate Lower Body Routine
-          </button>
-        </Link>
-        <Link to="/routineu">
-          <button style={ style.shuffleButton } type="button">
-            Generate Upper Body Routine
+            Generate Routine
           </button>
         </Link>
       </div>

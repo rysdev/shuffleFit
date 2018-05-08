@@ -4,7 +4,6 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-var Comment = require('./model/comments');
 var Lowerb = require('./model/lowerb');
 var Upperb = require('./model/upperb');
 var secrets = require('./secrets');
