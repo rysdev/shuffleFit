@@ -37,11 +37,12 @@ class HeaderView extends Component {
         {auth.isAuthenticated ? (
           <div className="login">
             <img src={auth.profile.picture} height="40px" alt="profile" />
-            <span>Welcome, {auth.profile.nickname}</span>
+            <span>Welcome, {auth.profile.nickname} </span>
             <button onClick={this.handleLogoutClick}>Logout</button>
           </div>
         ) : (
           <div className="login">
+            <span>Welcome Guest </span>
             <button onClick={this.handleLoginClick}>Login</button>
           </div>
         )}

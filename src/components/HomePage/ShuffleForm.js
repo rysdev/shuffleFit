@@ -18,7 +18,7 @@ class ShuffleForm extends Component {
     return (
       <div>
         <label>
-          Build Your Routine
+          Select Your Routine
           <select value={this.state.type} onChange={this.handleTypeChange}>
             <option selected value="/routinel">Lower Body</option>
             <option value="/routineu">Upper Body</option>

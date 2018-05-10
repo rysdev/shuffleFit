@@ -34,25 +34,9 @@ class HomePage extends Component {
   }
 
   render() {
-    /*let dataNodes = this.state.data.map(comment => {
-      return (
-        <div key={ comment._id }>
-          { comment.text }
-        </div>
-      )
-    })*/
     return (
       <div>
-        <h2>Customize Your Workout</h2>
-        {loggedIn() &&
-          <div>
-            <h3> Login Successful </h3>
-            <p> Welcome { getProfile().nickname }</p>
-          </div>
-        }
-        {!loggedIn() &&
-          <h3> Not Logged In </h3>
-        }
+        <h2>Randomize Your Workout</h2>
         < ShuffleForm />
       </div>
     )
