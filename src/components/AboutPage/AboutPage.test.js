@@ -11,7 +11,7 @@ describe('(Component) <AboutPage />', () => {
   it('should render a <p> with correct text', () => {
     const wrapper = shallow(<AboutPage />);
     expect(wrapper.find('p').text()).toEqual(
-      'Some info about React Redux Auth0 Kit.'
+      'Customize a generated workout for the day.'
     );
   });
 });

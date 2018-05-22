@@ -6,6 +6,6 @@ import NotFoundPage from './NotFoundPage';
 describe('(Component) <NotFoundPage />', () => {
   it('should render the correct page title', () => {
     const wrapper = shallow(<NotFoundPage />);
-    expect(wrapper.find('h2').text()).toEqual('404');
+    expect(wrapper.find('h2').text()).toEqual('...');
   });
 });
