@@ -24,6 +24,7 @@ class ShuffleForm extends Component {
             <option value="/routineu">Upper Body</option>
           </select>
         </label>
+        {/* Trigger Route from AppView.js   */}
         <Link to={this.state.type}>
           <button style={ style.shuffleButton } type="button">
             Generate Routine

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import { loggedIn, getProfile } from '../../utils/AuthService';
+//import { loggedIn, getProfile } from '../../utils/AuthService';
 import ShuffleForm from './ShuffleForm';
 
 class HomePage extends Component {
