@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-//import { loggedIn, getProfile } from '../../utils/AuthService';
-import ShuffleForm from './ShuffleForm';
+import RoutinePage from './RoutinePage';
 
 class HomePage extends Component {
   constructor(props) {
@@ -37,7 +36,7 @@ class HomePage extends Component {
     return (
       <div>
         <h2>Randomize Your Workout</h2>
-        < ShuffleForm />
+        < RoutinePage />
       </div>
     )
   }

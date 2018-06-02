@@ -6,7 +6,6 @@ import Header from '../Header/Header';
 import HomePage from '../../components/HomePage/HomePage';
 import AboutPage from '../../components/AboutPage/AboutPage';
 import AdminPage from '../../components/AdminPage/AdminPage';
-import RoutinePage from '../../components/RoutinePage/RoutinePage';
 import NotFoundPage from '../../components/NotFoundPage/NotFoundPage';
 import * as AuthService from '../../utils/AuthService';
 
@@ -45,7 +44,6 @@ class AppView extends Component {
     const myHomePage = () => {
       return (
         <HomePage 
-          url='http://localhost:3001/api/'
           pollInterval={2000}
         />
       );
@@ -57,12 +55,6 @@ class AppView extends Component {
           <Route exact path="/" render={myHomePage}/>
           <Route path="/about" component={AboutPage} />
           <Route path="/admin" component={AdminPage} />
-          <Route path="/routinel"
-                 render={(props) => <RoutinePage {...props} routineType="lowerb/3" pollInterval={2000} />}
-          />
-          <Route path="/routineu"
-                 render={(props) => <RoutinePage {...props} routineType="upperb/3" pollInterval={2000} />}
-          />
           <Route component={NotFoundPage} />
         </Switch>
       </div>
