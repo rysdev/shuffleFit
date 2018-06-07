@@ -13,7 +13,7 @@ const style = {
       height:'40px',
       flex:'2'
     },
-    routineFormFrontImg: {
+    routineFormImg: {
       flex:'4',
       minWidth:'400px',
       margin:'3px',

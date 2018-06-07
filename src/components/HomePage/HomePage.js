@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 
 import RoutinePage from './RoutinePage';
 
@@ -11,10 +11,11 @@ class HomePage extends Component {
     this.pollInterval = null;
   }
   loadDataFromServer() {
-    axios.get(this.props.url)
+    //this will use api address from config to load user preference data
+    /*axios.get()
       .then(res => {
         this.setState({ data: res.data });
-      })
+      }) */
   }
 
   componentDidMount() {

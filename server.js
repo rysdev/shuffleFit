@@ -58,6 +58,7 @@ router.route('/lowerb')
     (req.body.name) ? routine.name = req.body.name : null;
     (req.body.reps) ? routine.reps = req.body.reps : null;
     (req.body.sets) ? routine.sets = req.body.sets : null;
+    (req.body.equipment) ? routine.equipment = req.body.equipment : null;
     (req.body.frontImg) ? routine.frontImg = req.body.frontImg : null;
     (req.body.backImg) ? routine.backImg = req.body.backImg : null;
 
@@ -99,6 +100,7 @@ router.route('/upperb')
     (req.body.name) ? routine.name = req.body.name : null;
     (req.body.reps) ? routine.reps = req.body.reps : null;
     (req.body.sets) ? routine.sets = req.body.sets : null;
+    (req.body.equipment) ? routine.equipment = req.body.equipment : null;
     (req.body.frontImg) ? routine.frontImg = req.body.frontImg : null;
     (req.body.backImg) ? routine.backImg = req.body.backImg : null;
 

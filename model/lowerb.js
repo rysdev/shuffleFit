@@ -10,6 +10,7 @@ var LowerbSchema = new Schema({
   name: String,
   reps: Number,
   sets: Number,
+  equipment: String,
   frontImg: String,
   backImg: String
 });
