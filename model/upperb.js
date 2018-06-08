@@ -1,4 +1,4 @@
-//mode/upperb.js
+//model/upperb.js
 'use strict';
 //import dependency
 var mongoose = require('mongoose');

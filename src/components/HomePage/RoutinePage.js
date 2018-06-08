@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import style from './style';
 import config from '../../utils/config';
 import ShuffleForm from './ShuffleForm';
 import DisplayRoutine from './DisplayRoutine';
@@ -51,11 +52,13 @@ class RoutinePage extends Component {
         {this.state.routineData.length !== 0 &&
         <div>
           <h2> Routine of the Day</h2>
-          <h3> Step 1 - Start with 10 minutes of Intense Cardio </h3>
-          <h3> Step 2 - Follow up with core exercises (like 3 sets of planks) </h3>
+          <h3 style={ style.RoutineDisplay}> Step 1 - Start with 10 minutes of Intense Cardio </h3>
+          <h3 style={ style.RoutineDisplay}> Step 2 - Follow up with core exercises (like 3 sets of planks) </h3>
+          <div style={ style.RoutineDisplay} >
           <h3> Step 3 - Complete the following Weight Training Routines </h3>
           { routineNodes }
-          <h3> Step 4 - Finish off with 10 more minutes of Intense Cardio </h3>
+          </div>
+          <h3 style={ style.RoutineDisplay}> Step 4 - Finish off with 10 more minutes of Intense Cardio </h3>
         </div>
         }
       </div>

@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var Lowerb = require('./model/lowerb');
 var Upperb = require('./model/upperb');
+//var Core = require('./model/core');
 var secrets = require('./secrets');
 
 //instances
@@ -40,7 +41,7 @@ router.get('/', function(req, res) {
   res.json({ message: 'API Initialized!'});
 });
 
-//add lower body route
+//lower body route
 router.route('/lowerb')
   //retrieve from db
   .get(function(req, res) {
@@ -49,7 +50,7 @@ router.route('/lowerb')
       if (err)
         res.send(err);
       //responds with json object of db lower body routines.
-      res.json(routines)
+      res.json(routines);
     });
   })
   //post new lower body routine to db
@@ -69,20 +70,34 @@ router.route('/lowerb')
     });
   });
 
+//Adding a route to send randomly generated lower body routines within equipment group
+router.route('/lowerb/:equipment_name/:lowerb_size')
+  .get(function(req, res) {
+    //filter lower body routines by equipment and amount
+    Lowerb.aggregate([
+      {$match: {equipment: req.params.equipment_name}},
+      {$sample: {size: parseInt(req.params.lowerb_size)}}
+    ], function(err, routines) {
+      if (err)
+        res.send(err);
+      //responds with json object of db lower body routines.
+      res.json(routines);
+    });
+  });
+
 //Adding a route to send randomly generated lower body routines
 router.route('/lowerb/:lowerb_size')
-  //
   .get(function(req, res) {
-    //
+    //filter upper body routines by amount
     Lowerb.aggregate([{$sample: {size: parseInt(req.params.lowerb_size)}}], function(err, routines) {
       if (err)
         res.send(err);
       //responds with json object of db lower body routines.
-      res.json(routines)
+      res.json(routines);
     });
   });
 
-//add upper body route
+//upper body route
 router.route('/upperb')
   //retrieve from db
   .get(function(req, res) {
@@ -91,7 +106,7 @@ router.route('/upperb')
       if (err)
         res.send(err);
     //responds with json object of db upper body routines.
-    res.json(routines)
+    res.json(routines);
     });
   })
   //post new upper body routine to db
@@ -111,18 +126,61 @@ router.route('/upperb')
     });
   });
 
+//Adding a route to send randomly generated upper body routines within equipment group
+router.route('/upperb/:equipment_name/:upperb_size')
+  .get(function(req, res) {
+    //filter upper body routines by equipment and amount
+    Upperb.aggregate([
+      {$match: {equipment: req.params.equipment_name}},
+      {$sample: {size: parseInt(req.params.upperb_size)}}
+    ], function(err, routines) {
+      if (err)
+        res.send(err);
+      //responds with json object of db lower body routines.
+      res.json(routines);
+    });
+  });
+
 //Adding a route to send randomly generated upper body routines
 router.route('/upperb/:upperb_size')
-  //
   .get(function(req, res) {
-    //
+    //filter upper body routines by amount
     Upperb.aggregate([{$sample: {size: parseInt(req.params.upperb_size)}}], function(err, routines) {
       if (err)
         res.send(err);
       //responds with json object of db upper body routines.
-      res.json(routines)
+      res.json(routines);
     });
   });
+
+//core route
+//router.route('/core')
+  //retrieve all core from db
+  //.get(function(req, res) {
+    //looks at Core Schema
+    //Core.find(function(err, routines) {
+      //if (err)
+        //res.send(err);
+    //responds with json object of db core routines.
+    //res.json(routines);
+    //});
+  //})
+  //post new core routine to db
+  /*.post(function(req, res) {
+    var routine = new Core();
+    (req.body.name) ? routine.name = req.body.name : null;
+    (req.body.seconds) ? routine.seconds = req.body.seconds : null;
+    (req.body.sets) ? routine.sets = req.body.sets : null;
+    (req.body.equipment) ? routine.equipment = req.body.equipment : null;
+    (req.body.frontImg) ? routine.frontImg = req.body.frontImg : null;
+    (req.body.backImg) ? routine.backImg = req.body.backImg : null;
+
+    routine.save(function(err) {
+      if (err)
+        res.send(err);
+      res.json({ message: 'Core Routine successfully added!' });
+    });
+  });*/
 
 //Specify router configured for {host):{port}/api/anyroutehere
 app.use('/api', router);
