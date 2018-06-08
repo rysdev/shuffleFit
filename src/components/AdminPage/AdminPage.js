@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import AdminForm from './AdminForm';
-//import CoreForm from './CoreForm';
+import CoreForm from './CoreForm';
 import { getProfile } from '../../utils/AuthService';
 import config from '../../utils/config';
 
@@ -28,7 +28,7 @@ class AdminPage extends Component {
   }
 
   handleCoreSubmit(routine) {
-    axios.post(config.Core_URL, routine)
+    axios.post(config.CORE_URL, routine)
       .catch(err => {
         console.error(err);
       });
@@ -46,8 +46,8 @@ class AdminPage extends Component {
             <AdminForm onRoutineSubmit={ this.handleLowerbSubmit }/>
             <h2> Enter Upper Body Routine </h2>
             <AdminForm onRoutineSubmit={ this.handleUpperbSubmit }/>
-            {/*<h2> Enter Core Routine </h2>
-            <CoreForm onRoutineSubmit={ this.handleCoreSubmit }/>*/}
+            <h2> Enter Core Routine </h2>
+            <CoreForm onRoutineSubmit={ this.handleCoreSubmit }/>
           </div>
         }
         {getProfile().sub !== config.ADMIN_SUB &&

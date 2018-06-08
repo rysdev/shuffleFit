@@ -13,11 +13,32 @@ class DisplayRoutine extends Component {
   render() {
     return (
       <div style={ style.RoutineDisplay} >
-        <span> 
-          <img src={this.props.frontUrl} alt="Routine Demonstration" width="300" height="400"/>
-          <img src={this.props.backUrl} alt="Routine Details" width="300" height="400"/>
-        </span>
-        <h2> Complete { this.props.sets } Sets of { this.props.reps } </h2>
+        {typeof this.props.backUrl !== 'undefined' &&
+          <div>
+            <span>
+              {console.log(this.props.backUrl)}
+              <img src={this.props.frontUrl} alt="Routine Demonstration" width="300" height="400"/>
+              <img src={this.props.backUrl} alt="Routine Details" width="300" height="400"/>
+            </span>
+          </div>
+        }
+        {typeof this.props.backUrl === 'undefined' &&
+          <div>
+            <span> 
+              <img src={this.props.frontUrl} alt="Routine Demonstration" width="600" height="400"/>
+            </span>
+          </div>
+        }
+        {this.props.reps !== '' &&
+          <div>
+            <h2> Complete { this.props.sets } Sets of { this.props.reps } reps </h2>
+          </div>
+        }
+        {this.props.seconds !== '' &&
+          <div>
+            <h2> Complete { this.props.sets } Sets of { this.props.seconds } seconds of {this.props.routineName}s </h2>
+          </div>
+        }
       </div>
     )
   }

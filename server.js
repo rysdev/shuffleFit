@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var Lowerb = require('./model/lowerb');
 var Upperb = require('./model/upperb');
-//var Core = require('./model/core');
+var Core = require('./model/core');
 var secrets = require('./secrets');
 
 //instances
@@ -136,7 +136,7 @@ router.route('/upperb/:equipment_name/:upperb_size')
     ], function(err, routines) {
       if (err)
         res.send(err);
-      //responds with json object of db lower body routines.
+      //responds with json object of db upper body routines.
       res.json(routines);
     });
   });
@@ -154,19 +154,19 @@ router.route('/upperb/:upperb_size')
   });
 
 //core route
-//router.route('/core')
+router.route('/core')
   //retrieve all core from db
-  //.get(function(req, res) {
+  .get(function(req, res) {
     //looks at Core Schema
-    //Core.find(function(err, routines) {
-      //if (err)
-        //res.send(err);
+    Core.find(function(err, routines) {
+      if (err)
+        res.send(err);
     //responds with json object of db core routines.
-    //res.json(routines);
-    //});
-  //})
+    res.json(routines);
+    });
+  })
   //post new core routine to db
-  /*.post(function(req, res) {
+  .post(function(req, res) {
     var routine = new Core();
     (req.body.name) ? routine.name = req.body.name : null;
     (req.body.seconds) ? routine.seconds = req.body.seconds : null;
@@ -180,7 +180,34 @@ router.route('/upperb/:upperb_size')
         res.send(err);
       res.json({ message: 'Core Routine successfully added!' });
     });
-  });*/
+  });
+
+//Adding a route to send randomly generated core routines within equipment group
+router.route('/core/:equipment_name/:core_size')
+  .get(function(req, res) {
+    //filter core routines by equipment and amount
+    Core.aggregate([
+      {$match: {equipment: req.params.equipment_name}},
+      {$sample: {size: parseInt(req.params.core_size)}}
+    ], function(err, routines) {
+      if (err)
+        res.send(err);
+      //responds with json object of db core routines.
+      res.json(routines);
+    });
+  });
+
+//Adding a route to send randomly generated core routines
+router.route('/core/:core_size')
+  .get(function(req, res) {
+    //filter core routines by amount
+    Core.aggregate([{$sample: {size: parseInt(req.params.core_size)}}], function(err, routines) {
+      if (err)
+        res.send(err);
+      //responds with json object of db core routines.
+      res.json(routines);
+    });
+  });
 
 //Specify router configured for {host):{port}/api/anyroutehere
 app.use('/api', router);

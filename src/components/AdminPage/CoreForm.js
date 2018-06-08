@@ -40,11 +40,10 @@ class CoreForm extends Component {
     let equipment = this.state.equipment;
     let frontImg = this.state.frontImg.trim();
     let backImg = this.state.backImg.trim();
-    if (!backImg || !frontImg || !equipment || !sets || !seconds || !name) {
+    if (!frontImg || !equipment || !sets || !seconds || !name) {
       return;
     }
-    //this.props.onRoutineSubmit({ name: name, seconds: seconds, sets: sets, equipment: equipment, frontImg: frontImg, backImg: backImg });
-    this.props.onRoutineSubmit({ name: "test", seconds: "30", sets: "3", equipment: "test", frontImg: "test", backImg: "test" });
+    this.props.onRoutineSubmit({ name: name, seconds: seconds, sets: sets, equipment: equipment, frontImg: frontImg, backImg: backImg });
     this.setState({ name: '', frontImg: '', backImg: '' });
   }
   render() {
@@ -84,7 +83,7 @@ class CoreForm extends Component {
           onChange={ this.handleFrontImgChange } />
         <input
           type='text'
-          placeholder='Back picture link...'
+          placeholder='Optional Back picture link...'
           style={ style.routineFormImg}
           value={ this.state.backImg }
           onChange={ this.handleBackImgChange } />

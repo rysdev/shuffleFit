@@ -5,9 +5,10 @@ import style from './style';
 class ShuffleForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { type: 'lowerb/', equip: 'Dumbbell/', amt: '3'};
+    this.state = { type: 'lowerb/', equip: 'Dumbbell/', coreEquip: 'Weights/', amt: '3'};
     this.handleTypeChange = this.handleTypeChange.bind(this);
     this.handleEquipChange = this.handleEquipChange.bind(this);
+    this.handleCoreEquipChange = this.handleCoreEquipChange.bind(this);
     this.handleAmtChange = this.handleAmtChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -20,6 +21,10 @@ class ShuffleForm extends Component {
     this.setState({ equip: e.target.value });
   }
 
+  handleCoreEquipChange(e) {
+    this.setState({ coreEquip: e.target.value });
+  }
+
   handleAmtChange(e) {
     this.setState({ amt: e.target.value });
   }
@@ -27,7 +32,8 @@ class ShuffleForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     let apitail = this.state.type + this.state.equip + this.state.amt;
-    this.props.onRoutineSubmit(apitail);
+    let coreapitail = 'core/' + this.state.coreEquip + '1';
+    this.props.onRoutineSubmit(apitail, coreapitail);
   }
 
   render() {
@@ -59,6 +65,14 @@ class ShuffleForm extends Component {
             <option value="2">2</option>
             <option value="4">4</option>
             <option value="5">5</option>
+          </select>
+          </label>
+          <label>
+            Core Options
+          <select value={this.state.coreEquip} style={ style.shuffleField} onChange={this.handleCoreEquipChange}>
+            <option default value="Weights/">Weights</option>
+            <option value="Bodyweight/">Bodyweight</option>
+            <option value="">All</option>
           </select>
           </label>
           <input
