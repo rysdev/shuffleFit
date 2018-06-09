@@ -243,7 +243,15 @@ router.route('/user/:userid/:key')
     User.findByIdAndUpdate(req.params.key,
       { pref : req.body.pref },
       function(err) {
-        if (err) throw err;
+        if (err) res.send(err);
+        res.status(200);
+      });
+  })
+  .delete(function(req, res) {
+    User.findByIdAndRemove(req.params.key,
+      function(err) {
+        if (err) res.send(err);
+        res.status(200);
       });
   });
 

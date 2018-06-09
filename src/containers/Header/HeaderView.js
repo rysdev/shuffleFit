@@ -55,6 +55,15 @@ class HeaderView extends Component {
           <li>
             <Link to="/about">About</Link>
           </li>
+          {auth.isAuthenticated ? (
+            <li>
+              <Link to="/options">User Options</Link>
+            </li>
+          ) : (
+            <li>
+              <p>User Options</p>
+            </li>
+          )}
         </ul>
         <div className="main-header">
           <h1>ShuffleFit</h1>

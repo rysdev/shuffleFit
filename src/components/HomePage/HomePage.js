@@ -6,22 +6,23 @@ import RoutinePage from './RoutinePage';
 class HomePage extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [] };
-    this.loadDataFromServer = this.loadDataFromServer.bind(this);
+    //this.state = { data: [] };
+    //this.loadDataFromServer = this.loadDataFromServer.bind(this);
     this.pollInterval = null;
   }
-  loadDataFromServer() {
+  //loadDataFromServer() {
     //this will use api address from config to load user preference data
     /*axios.get()
       .then(res => {
         this.setState({ data: res.data });
       }) */
-  }
+  //}
 
   componentDidMount() {
-    this.loadDataFromServer();
+    //this.loadDataFromServer();
     if (!this.pollInterval) {
-      this.pollInterval = setInterval(this.loadDataFromServer, this.props.pollInterval)
+      this.pollInterval = setInterval(this.props.pollInterval);
+      //this.pollInterval = setInterval(this.loadDataFromServer, this.props.pollInterval);
     } 
   }
   
