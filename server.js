@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var Lowerb = require('./model/lowerb');
 var Upperb = require('./model/upperb');
 var Core = require('./model/core');
+var User = require('./model/user');
 var secrets = require('./secrets');
 
 //instances
@@ -207,6 +208,43 @@ router.route('/core/:core_size')
       //responds with json object of db core routines.
       res.json(routines);
     });
+  });
+
+//user route
+router.route('/user')
+  //post new user to db
+  .post(function(req, res) {
+    var user = new User();
+    (req.body.userID) ? user.userID = req.body.userID : null;
+    (req.body.name) ? user.name = req.body.name : null;
+    (req.body.pref) ? user.pref = req.body.pref : null;
+
+    user.save(function(err) {
+      if (err)
+        res.send(err);
+      res.json({ message: 'User successfully added!' });
+    });
+  });
+
+//search for a single user with userid
+router.route('/user/:userid')
+  .get(function(req, res) {
+    User.findOne({
+      userID: req.params.userid
+    }).exec(function(err, user) {
+      if (err) res.send(err);
+      res.json(user);
+    });
+  });
+
+//modify pref of existing user
+router.route('/user/:userid/:key')
+  .post(function(req, res) {
+    User.findByIdAndUpdate(req.params.key,
+      { pref : req.body.pref },
+      function(err) {
+        if (err) throw err;
+      });
   });
 
 //Specify router configured for {host):{port}/api/anyroutehere

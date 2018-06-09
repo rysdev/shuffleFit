@@ -16,7 +16,6 @@ class DisplayRoutine extends Component {
         {typeof this.props.backUrl !== 'undefined' &&
           <div>
             <span>
-              {console.log(this.props.backUrl)}
               <img src={this.props.frontUrl} alt="Routine Demonstration" width="300" height="400"/>
               <img src={this.props.backUrl} alt="Routine Details" width="300" height="400"/>
             </span>
@@ -31,12 +30,12 @@ class DisplayRoutine extends Component {
         }
         {this.props.reps !== '' &&
           <div>
-            <h2> Complete { this.props.sets } Sets of { this.props.reps } reps </h2>
+            <h2> Complete { this.props.sets } Sets of { this.props.reps } Reps </h2>
           </div>
         }
         {this.props.seconds !== '' &&
           <div>
-            <h2> Complete { this.props.sets } Sets of { this.props.seconds } seconds of {this.props.routineName}s </h2>
+            <h2> {this.props.routineName}: Continuously for { this.props.seconds } seconds for { this.props.sets } Sets </h2>
           </div>
         }
       </div>

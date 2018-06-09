@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import style from './style';
 import config from '../../utils/config';
+import { loggedIn, getProfile } from '../../utils/AuthService';
 import ShuffleForm from './ShuffleForm';
 import DisplayRoutine from './DisplayRoutine';
 
@@ -10,29 +11,48 @@ class RoutinePage extends Component {
   constructor(props) {
     super(props);
     this.state = { routineData: [], coreData: [] };
-    //this.loadDataFromServer = this.loadDataFromServer.bind(this);
     this.handleRoutineSubmit = this.handleRoutineSubmit.bind(this);
     this.pollInterval = null;
   }
 
-  /*loadDataFromServer() {
-    This will load user presets
-  }*/
-
-  handleRoutineSubmit(apiTail, coreApiTail) {
+  handleRoutineSubmit(apiTail, coreApiTail, user) {
+    //populate data for main routines based on form selections
     axios.get(config.API_URL + apiTail)
       .then(res => {
         this.setState({ routineData: res.data });
-      })
-      axios.get(config.API_URL + coreApiTail)
+      });
+    //populate data for core routine based on form selections
+    axios.get(config.API_URL + coreApiTail)
       .then(res => {
         this.setState({ coreData: res.data });
-      })
+      });
+    //update or create user preference data if user is logged in  
+    if (loggedIn()) {
+      //attempt to find existing user
+      axios.get(config.USER_URL + '/' + getProfile().sub)
+        .then(res => {
+          if(res.data !== null) {
+            //console.log("id found");
+            //update preferences for existing user
+            axios.post(config.USER_URL + '/' + getProfile().sub + '/' + res.data._id, user)
+              .catch(err => {
+                console.error(err);
+              });
+          }
+          else {
+            //console.log("id not found");
+            //create preferences for new user
+            axios.post(config.USER_URL, user)
+              .catch(err => {
+                console.error(err);
+              });
+          }
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    }
   }
-
-  /*componentDidMount() {
-    this.loadDataFromServer();
-  } */
   
   //this will prevent error messages every 2 seconds
   //after RoutinePage
@@ -65,8 +85,10 @@ class RoutinePage extends Component {
         <div>
           <h2> Routine of the Day</h2>
           <h3 style={ style.RoutineDisplay}> Step 1 - Start with 10 minutes of Intense Cardio </h3>
-          <h3 style={ style.RoutineDisplay}> Step 2 - Follow up with core exercises (like 3 sets of planks) </h3>
+          <div style={ style.RoutineDisplay} >
+          <h3> Step 2 - Procede with the following core exercise </h3>
           { coreNodes }
+          </div>
           <div style={ style.RoutineDisplay} >
           <h3> Step 3 - Complete the following Weight Training Routines </h3>
           { routineNodes }

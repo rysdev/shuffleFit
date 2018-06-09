@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import { loggedIn, getProfile } from '../../utils/AuthService';
 
 import style from './style';
+import config from '../../utils/config';
 
 class ShuffleForm extends Component {
   constructor(props) {
@@ -11,6 +14,7 @@ class ShuffleForm extends Component {
     this.handleCoreEquipChange = this.handleCoreEquipChange.bind(this);
     this.handleAmtChange = this.handleAmtChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.loadDataFromServer = this.loadDataFromServer.bind(this);
   }
 
   handleTypeChange(e) {
@@ -29,12 +33,41 @@ class ShuffleForm extends Component {
     this.setState({ amt: e.target.value });
   }
 
+  loadDataFromServer() {
+    if (loggedIn()) {
+      axios.get(config.USER_URL + '/' + getProfile().sub)
+        .then(res => {
+          if(res.data !== null) {
+            //console.log("id found");
+            //update preferences for existing user, auto-alternates body group for each login
+            let userPref = res.data.pref;
+            if(userPref.bodyGroup === 'lowerb/')
+              this.setState({ type: 'upperb/', equip: userPref.equipment, coreEquip: userPref.coreOptions, amt: userPref.numRoutines });
+            else
+              this.setState({ type: 'lowerb/', equip: userPref.equipment, coreEquip: userPref.coreOptions, amt: userPref.numRoutines });
+          }
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     let apitail = this.state.type + this.state.equip + this.state.amt;
     let coreapitail = 'core/' + this.state.coreEquip + '1';
-    this.props.onRoutineSubmit(apitail, coreapitail);
+    let user = {};
+    if (loggedIn()) {
+      let pref = { bodyGroup: this.state.type, equipment: this.state.equip, numRoutines: this.state.amt, coreOptions: this.state.coreEquip };
+      user = { userID: getProfile().sub, name: getProfile().name, pref}
+    }
+    this.props.onRoutineSubmit(apitail, coreapitail, user);
   }
+
+  componentDidMount() {
+    this.loadDataFromServer();
+  } 
 
   render() {
     return (
