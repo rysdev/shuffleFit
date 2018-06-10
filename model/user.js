@@ -13,8 +13,8 @@ var UserSchema = new Schema({
   },
   name: String,
   isAdmin: {
-      type: Boolean,
-      default: false
+    type: Boolean,
+    default: false
   },
   pref: {
       bodyGroup: {
@@ -32,7 +32,11 @@ var UserSchema = new Schema({
       coreOptions: {
         type: String,
         default: 'Weights/'
-    }
+      }
+  },
+  dateCreated: {
+    type: Date,
+    default: Date.now
   }
 });
 
