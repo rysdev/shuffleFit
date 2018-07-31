@@ -28,3 +28,10 @@ a upper or lower body routine. All fields but the
 last are required for posting a core routine.
 
 App is in prototyping phase with minimal styling.
+
+Before hosting use the provided template files to build the following config files:
+1. src/utils/config.js
+2. secrets.js
+
+To run server script and application:
+npm run start-dev

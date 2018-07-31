@@ -10,13 +10,14 @@ class HomePage extends Component {
     //this.loadDataFromServer = this.loadDataFromServer.bind(this);
     this.pollInterval = null;
   }
-  //loadDataFromServer() {
-    //this will use api address from config to load user preference data
-    /*axios.get()
+
+  /* For future features that will load more user preferences into app
+    loadDataFromServer() {
+    axios.get()
       .then(res => {
         this.setState({ data: res.data });
-      }) */
-  //}
+      }) 
+  }*/
 
   componentDidMount() {
     //this.loadDataFromServer();
