@@ -15,3 +15,4 @@ export default withRouter(
     mapDispatchToProps
   )(AppView)
 );
+

@@ -5,3 +5,4 @@ import * as authActions from './actions';
 export { authTypes, authActions };
 
 export default authReducer;
+

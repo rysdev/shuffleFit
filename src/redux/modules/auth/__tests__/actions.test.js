@@ -33,3 +33,4 @@ describe('(Actions) auth', () => {
     expect(authActions.logoutSuccess()).toEqual(expectedAction);
   });
 });
+

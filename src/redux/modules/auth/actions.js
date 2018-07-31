@@ -17,3 +17,4 @@ export const loginError = error => ({
 export const logoutSuccess = () => ({
   type: types.LOGOUT_SUCCESS
 });
+

@@ -16,3 +16,4 @@ describe('(Component) <App />', () => {
     expect(wrapper.find(Header)).toHaveLength(1);
   });
 });
+
