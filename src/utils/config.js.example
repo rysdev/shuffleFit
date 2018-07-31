@@ -1,0 +1,11 @@
+export default {
+  AUTH0_CLIENT_ID: 'YourIdHere',
+  AUTH0_DOMAIN: 'YourDomainHere',
+  // Your URLs below
+  REDIRECT_URL: 'http://localhost:3000/callback',
+  LOWERB_URL: 'http://localhost:3001/api/lowerb',
+  UPPERB_URL: 'http://localhost:3001/api/upperb',
+  CORE_URL: 'http://localhost:3001/api/core',
+  USER_URL: 'http://localhost:3001/api/user',
+  API_URL: 'http://localhost:3001/api/'
+};
