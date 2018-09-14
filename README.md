@@ -5,8 +5,8 @@ Mongoose Express Node React-Redux/Router
 
 App created to mix-up workouts. Complete the form
 on the home page to customize a random workout for
-the day. Login to the app to remember your most
-recent workout. Next time the app will auto-populated 
+the day. Login to the app to keep track of workouts. 
+Next time you login the app will auto-populated 
 the form based on your previous workout. Body groups 
 will be toggled between upper and lower body each 
 day in order to promote even distribution of 
