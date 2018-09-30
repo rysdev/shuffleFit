@@ -29,7 +29,7 @@ last are required for posting a core routine.
 
 App is in prototyping phase with minimal styling.
 
-Before hosting use the provided template files to build the following config files:
+Before running use the provided template files to build the necessary config files:
 1. src/utils/config.js
 2. secrets.js
 
