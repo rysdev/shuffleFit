@@ -27,7 +27,7 @@ the database. All fields are required for posting
 a upper or lower body routine. All fields but the 
 last are required for posting a core routine.
 
-App is in prototyping phase with minimal styling.
+Application in prototyping phase with minimal styling.
 
 Before running use the provided template files to build the necessary config files:
 1. src/utils/config.js
