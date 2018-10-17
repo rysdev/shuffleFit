@@ -20,7 +20,7 @@ registered users. More options will be added later
 but now all users have the option to delete their
 user data from the database.
 
-Admin have an added option to the add routines to 
+Admins have an added option to the add routines to 
 the database. This page has three forms for adding 
 either lower body, upper body or core exercise to 
 the database. All fields are required for posting 
