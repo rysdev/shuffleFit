@@ -16,9 +16,8 @@ Core exercises pictured with kettlebell can be
 substituted with dumbbells for the same effect.
 
 The user options page only provides functions for 
-registered users. More options will be added later
-but now all users have the option to delete their
-user data from the database.
+registered users. All users have the option to delete 
+their user data from the database.
 
 Admins have an added option to the add routines to 
 the database. This page has three forms for adding 
