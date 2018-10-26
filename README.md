@@ -28,7 +28,7 @@ last are required for posting a core routine.
 
 Application in prototyping phase with minimal styling.
 
-Before running use the provided template files to build the necessary config files:
+Use the provided template files to build the necessary config files:
 1. src/utils/config.js
 2. secrets.js
 
