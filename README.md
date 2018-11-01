@@ -12,7 +12,7 @@ will be toggled between upper and lower body each
 day in order to promote even distribution of 
 routines.
 
-Core exercises pictured with kettlebell can be
+Core exercises using the kettlebell can be
 substituted with dumbbells for the same effect.
 
 All registered users have the option to delete 
