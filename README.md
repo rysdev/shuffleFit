@@ -15,7 +15,7 @@ routines.
 Core exercises using the kettlebell can be
 substituted with dumbbells for the same effect.
 
-All registered users have the option to delete 
+Registered users have the option to delete 
 their profile from the database.
 
 Admins have an added option to the add routines to 
