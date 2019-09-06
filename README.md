@@ -1,5 +1,5 @@
 # shuffleFit
-Web application for randomizing routine workout sessions
+Web application for randomizing routine workout sessions.
 
 Mongoose Express Node React-Redux/Router
 
