@@ -31,5 +31,5 @@ Use the provided template files to build the necessary config files:
 1. src/utils/config.js
 2. secrets.js
 
-To run server script and application:
+To run server script and application
 npm run start-dev
