@@ -13,7 +13,7 @@ day in order to promote even distribution of
 routines.
 
 Core exercises using the kettlebell can be
-substituted with dumbbells for the same effect.
+substituted with dumbbells for the same effect
 
 Registered users have the option to delete 
 their profile from the database.
