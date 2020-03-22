@@ -10,7 +10,7 @@ Next time you login the app will auto-populated
 the form based on your previous workout. Body groups 
 will be toggled between upper and lower body each 
 day in order to promote even distribution of 
-routines.
+routines
 
 Core exercises using the kettlebell can be
 substituted with dumbbells for the same effect.
