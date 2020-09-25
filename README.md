@@ -23,7 +23,7 @@ the database. This page has three forms for adding
 either lower body, upper body or core exercise to 
 the database. All fields are required for posting 
 a upper or lower body routine. All fields but the 
-last are required for posting a core routine
+last are required for posting a core routine.
 
 Application in prototyping phase with minimal styling.
 
